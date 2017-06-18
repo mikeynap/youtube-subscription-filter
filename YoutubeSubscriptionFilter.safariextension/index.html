@@ -1,0 +1,10 @@
+<script type="text/javascript">
+
+safari.application.addEventListener("message",sendConfig,false);
+
+function sendConfig(event) {
+    var filter = safari.extension.settings.filter
+    event.target.page.dispatchMessage("heresconfig", filter.split(",").map(e => e.trim()));
+}
+
+</script>
